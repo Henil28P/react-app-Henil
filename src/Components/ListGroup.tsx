@@ -4,9 +4,11 @@
 interface Props {
   items: string[];
   heading: string;
+  // {item: string} => void
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   let items = ["New York", "San Franscisco", "London", "Tokyo", "Paris"];
   let selectedIndex = 0;
   // Below Hook function allows us to tap into built-in features (this is the State hook) - this tells react that this component has data or state that will change over time
@@ -40,6 +42,7 @@ function ListGroup({ items, heading }: Props) {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
             /* Each property above is on separate line */
           >
