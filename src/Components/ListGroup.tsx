@@ -1,8 +1,12 @@
 // import { MouseEvent } from "react";
 
-import { useState } from "react";
+// import { useState } from "react";
+interface Props {
+  items: string[];
+  heading: string;
+}
 
-function ListGroup() {
+function ListGroup({ items, heading }: Props) {
   let items = ["New York", "San Franscisco", "London", "Tokyo", "Paris"];
   let selectedIndex = 0;
   // Below Hook function allows us to tap into built-in features (this is the State hook) - this tells react that this component has data or state that will change over time
@@ -19,7 +23,7 @@ function ListGroup() {
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {
         items.length === 0 && (
           <p>No item found</p>
